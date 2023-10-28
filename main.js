@@ -25,14 +25,14 @@ camera.position.setY(10)
 
 renderer.render(scene, camera)
 
-const geometry = new THREE.TorusGeometry( 5, 1, 16, 100 )
+const geometry = new THREE.TorusKnotGeometry( 5, 1, 100, 100 )
 const material = new THREE.MeshStandardMaterial( { color: 0xFF6347 } )
 const torus = new THREE.Mesh( geometry, material )
 // scene.add(torus)
 
 const loader = new GLTFLoader()
 // ---- LOAD SKATE BOARD ---- //
-let skateboard = new THREE.Object3D
+// let skateboard = new THREE.Object3D
 loader.load(
   './obj/skateboard_01/scene.gltf',
   function ( gltf ) {
@@ -73,7 +73,7 @@ loader.load(
 )
 
 // ---- (pointLight) color / intensity / distance / decay ---- //
-const pointLight = new THREE.PointLight(0xffffff, 100, 1000, 1)
+const pointLight = new THREE.PointLight(0xffffff, 15, 1000, 1)
 pointLight.position.set(5,15,5)
 scene.add(pointLight)
 
@@ -86,14 +86,27 @@ scene.add(lightHelper, gridHelper)
 
 const controls = new OrbitControls(camera, renderer.domElement)
 
+function addStar(){
+  const ranSize = Math.random() * 0.25
+  const geometry = new THREE.SphereGeometry(ranSize, 24, 24)
+  const material = new THREE.MeshMatcapMaterial({ color: 0xffffff })
+  const star = new THREE.Mesh( geometry, material )
+  
+  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread( 100 ))
+  star.position.set(x, y, z)
+  scene.add(star)
+}
+
+Array(2000).fill().forEach(addStar)
+
 function animate(){
   requestAnimationFrame( animate )
   
   torus.rotation.x += 0.01
   torus.rotation.y += 0.005
-  torus.rotation.z += 0.01
+  torus.rotation.z += 0.001
   
-  if( skateboard ) skateboard.rotation.z += 0.01
+  // if( skateboard ) skateboard.rotation.z += 0.01
   
   controls.update()
   
