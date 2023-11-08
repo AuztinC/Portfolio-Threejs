@@ -1,0 +1,11 @@
+Model Information:
+* title:	Javascript (1)
+* source:	https://sketchfab.com/3d-models/javascript-1-e6a5af39d2b3495fb4fb1f8f94d3efda
+* author:	agustin.trezza (https://sketchfab.com/agustin.trezza)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Javascript (1)" (https://sketchfab.com/3d-models/javascript-1-e6a5af39d2b3495fb4fb1f8f94d3efda) by agustin.trezza (https://sketchfab.com/agustin.trezza) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
